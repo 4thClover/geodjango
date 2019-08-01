@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+# first step after staticfolders
+import posixpath
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -88,6 +91,11 @@ DATABASES = {
 }
 
 
+# after static folders
+# SERIALIZATION_MODULES = {
+#     'geojson': 'geojson.serializers'
+# }
+
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
 
@@ -125,3 +133,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (-34.078100, 19.289200),
+    'DEFAULT_ZOOM': 12,
+    'MAX_ZOOM': 30,
+    'MIN_ZOOM': 3,
+    'SCALE': 'both',
+    'ATTRIBUTION_PREFIX': 'Powered by NOC-Dev',
+    'TILES': 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
+}
