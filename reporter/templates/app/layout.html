@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% load leaflet_tags %}
+{% load geojson_tags %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>{{ title }}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'app/mdb/css/bootstrap' %}">
+    <link rel="stylesheet" href="{% static 'app/mdb/css/mdb.min.css' %}">
+    <link rel="stylesheet" href="{% static 'app/mdb/css/style.css' %}">
+
+    {% load leaflet_css %}
+
+
+</head>
+<body>
+
+{% block content %}
+
+{% endblock %}
+
+<script src="{% static 'app/mdb/js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'app/mdb/js/popper.min.js' %}"></script>
+<script src="{% static 'app/mdb/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'app/mdb/js/mdb.min.js' %}"></script>
+
+{% leaflet_js %}
+
+<script src="{% static 'app/scripts/js/leaflet.ajax.min.js' %}"></script>
+<script src="{% static 'app/scripts/js/L.Control.Sidebar.js' %}"></script>
+<script src="{% static 'app/scripts/js/leaflet-button.js' %}"></script>
+<script src="{% static 'app/scripts/js/leaflet-search.src.js' %}"></script>
+
+</body>
+</html>
